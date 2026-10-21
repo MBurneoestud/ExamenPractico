@@ -79,7 +79,7 @@ export function FormularioAvistamiento() {
       descripcion: form.descripcion,
       fecha: form.fecha,
     };
-    datos[id ? "criatura" : "criaturaId"] = form.criatura;
+    datos.criatura =form.criatura;
     try {
       const a = await guardarAvistamiento(id, datos);
       navigate(`/avistamientos/${a._id}`);
