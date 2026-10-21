@@ -1,6 +1,6 @@
 # Uso de IA
-- Herramientas utilizadas (o "No utilizada"):
-- Una o dos solicitudes representativas SIN secretos:
+- Herramientas utilizadas (o "No utilizada"): Copilot
+- Una o dos solicitudes representativas SIN secretos: para el problema A-01 "para registrar evidencia del problema, a que archivos y que lineas deberia tomar captura de pantalla"
 - Decisión técnica: qué acepté, ajusté o descarté y por qué:
 - Cómo verifiqué los cambios:
 
