@@ -59,7 +59,7 @@ Acción/datos, esperado y observado ANTES: Se entra a la pagina criaturas, se se
 Explicación causal y archivo/capa, no solo su nombre: ListaCriaturas.tsx, el efecto iniciado en la linea 12 solo depende de recarga, por lo que cambiar el selector de categoria no lanza la consulta que cambiaria el listado. Problema esta en linea 30, despues del cierre del efecto, como se ve en EVIDENCIA-A04-LISTA
 
 ### Cambio
-Qué modifiqué, por qué resuelve la causa y commit de corrección: agregado "tipo" al cierre del efecto problematico en ListaCriaturas.tsx en la linea 30. Esto hace que cada cambio de selector vuelva a ejecutar la funcion listarCriaturas(tipo)
+Qué modifiqué, por qué resuelve la causa y commit de corrección: agregado "tipo" al cierre del efecto problematico en ListaCriaturas.tsx en la linea 30. Esto hace que cada cambio de selector vuelva a ejecutar la funcion listarCriaturas(tipo). Commit :"Arreglado problema A04, localizado en ListaCriaturas.tsx. Agregadas evidencias y actualizado documento de auditoria"
 
 ### Prueba
 Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia: Volver a cargar pagina criaturas en el front, cambiar de selectores sin aplastar el boton actualizar. Cada cambio de selector deberia devolver las criaturas correspondientes a ese tipo, o no hay resultados si el tipo no tiene criaturas registradas. Consultar evidencias con nombres A04 y ARREGLADO
