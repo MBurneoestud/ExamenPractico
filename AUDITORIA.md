@@ -43,27 +43,27 @@ Acción/datos, esperado y observado ANTES: Abrir Thunder Client, mandar un PUT c
 Explicación causal y archivo/capa, no solo su nombre: Problema de service y validacion, criaturas.service.ts no llama activa validacion cuando se usa findByIdandUpdate, validacion.ts no limita nivelPeligro a un rango 1-10
 
 ### Cambio
-Qué modifiqué, por qué resuelve la causa y commit de corrección: Cambios en service y validacion, service activala validacion, la validacion ahora tiene una condicion que nivelPeligro debe ser un valor mayor a 1 pero maximo 10.
+Qué modifiqué, por qué resuelve la causa y commit de corrección: Cambios en service y validacion, service activala validacion, la validacion ahora tiene una condicion que nivelPeligro debe ser un valor mayor a 1 pero maximo 10. Commit: "Guardando registro de evidencias y cambios para resolver A03. Tambien incluye formateado de archivos en el front"
 
 ### Prueba
-Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia:
+Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia: Abrir thunder, tratar PUT con numero invalido en el JSON, debe devolver 400. Tratar con numero valido, devuelve 200. Si se trata un GET despues de mandar valor invalido el JSON muestra el ultimo valor valido ingresado. Evidencia: capturas con A03 marcadas ARREGLADO
 
 ### Estado
-Resuelto / parcial / no resuelto. Si es parcial, qué falta:
+Resuelto / parcial / no resuelto. Si es parcial, qué falta: Resuelto
 
 ## A-04 · El filtro no actualiza la pantalla
 ### Síntoma
-Acción/datos, esperado y observado ANTES:
+Acción/datos, esperado y observado ANTES: Se entra a la pagina criaturas, se selecciona mitica y luego mecanica pero no se aplasta actualizar, la lista no refleja la categoria seleccionada como se ve en EVIDENCIA-A04-FRONT
 
 ### Causa
-Explicación causal y archivo/capa, no solo su nombre:
+Explicación causal y archivo/capa, no solo su nombre: ListaCriaturas.tsx, el efecto iniciado en la linea 12 solo depende de recarga, por lo que cambiar el selector de categoria no lanza la consulta que cambiaria el listado. Problema esta en linea 30, despues del cierre del efecto, como se ve en EVIDENCIA-A04-LISTA
 
 ### Cambio
-Qué modifiqué, por qué resuelve la causa y commit de corrección:
+Qué modifiqué, por qué resuelve la causa y commit de corrección: agregado "tipo" al cierre del efecto problematico en ListaCriaturas.tsx en la linea 30. Esto hace que cada cambio de selector vuelva a ejecutar la funcion listarCriaturas(tipo)
 
 ### Prueba
-Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia:
+Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia: Volver a cargar pagina criaturas en el front, cambiar de selectores sin aplastar el boton actualizar. Cada cambio de selector deberia devolver las criaturas correspondientes a ese tipo, o no hay resultados si el tipo no tiene criaturas registradas. Consultar evidencias con nombres A04 y ARREGLADO
 
 ### Estado
-Resuelto / parcial / no resuelto. Si es parcial, qué falta:
+Resuelto / parcial / no resuelto. Si es parcial, qué falta: Resuelto
 
