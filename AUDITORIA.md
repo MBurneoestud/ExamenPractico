@@ -22,29 +22,28 @@ Resuelto / parcial / no resuelto. Si es parcial, qué falta: Resuelto
 
 ## A-02 · La lista no identifica a la criatura
 ### Síntoma
-Acción/datos, esperado y observado ANTES:
+Acción/datos, esperado y observado ANTES: entrar a la pagina avistamientos, deberia mostrar la lista de avistamientos con el nombre de la criatura. No muestra el nombre, muestra el ID de la criatura. Evidencia visible en EVIDENCIA-A02-FRONT
 
 ### Causa
-Explicación causal y archivo/capa, no solo su nombre:
+Explicación causal y archivo/capa, no solo su nombre: funcion async en capa services no esta mandando populate, por lo que solo devuelve el ID. Funcion listar de avistamientos.service.ts, linea 12. Evidencia visible en EVIDENCIA-A02-SERVICE
 
 ### Cambio
-Qué modifiqué, por qué resuelve la causa y commit de corrección:
+Qué modifiqué, por qué resuelve la causa y commit de corrección: funcion async listar de avistamiento.service.ts, agregada linea a seccion de return. Hace que Mongoose no devuelva solo el ID, pero tambien el nombre de la criatura. REACT ya tiene capacidad de leer y mostrar el nombre, pero requiere de Mongoose para obtener l nombre y no solo ID. Commit: "Agregada linea 13 .populate para resolver problema de funcion de listado A02"
 
 ### Prueba
-Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia:
+Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia: Bajar backend, volver a correr con npm run dev, entrar a pagina avistamientos. Lista deberia mostrar avistamientos con el nombre de la criatura como se ve en EVIDENCIA-A02-FRONT-ARREGLADO 
 
 ### Estado
-Resuelto / parcial / no resuelto. Si es parcial, qué falta:
+Resuelto / parcial / no resuelto. Si es parcial, qué falta: Resuelto
 
 ## A-03 · Se acepta un peligro inválido
 ### Síntoma
-Acción/datos, esperado y observado ANTES:
-
+Acción/datos, esperado y observado ANTES: Abrir Thunder Client, mandar un PUT con cualquier ID de criatura, agregar {"nivelPeligro":999} en JSON y aplastar send. Se recibe status 200 y la ventana response muestra el peligro sobre 10. Evidencia en EVIDENCIA-A03-THUNDER
 ### Causa
-Explicación causal y archivo/capa, no solo su nombre:
+Explicación causal y archivo/capa, no solo su nombre: Problema de service y validacion, criaturas.service.ts no llama activa validacion cuando se usa findByIdandUpdate, validacion.ts no limita nivelPeligro a un rango 1-10
 
 ### Cambio
-Qué modifiqué, por qué resuelve la causa y commit de corrección:
+Qué modifiqué, por qué resuelve la causa y commit de corrección: Cambios en service y validacion, service activala validacion, la validacion ahora tiene una condicion que nivelPeligro debe ser un valor mayor a 1 pero maximo 10.
 
 ### Prueba
 Pasos/comando, datos, status/resultado esperado y observado DESPUÉS; archivo de evidencia:
